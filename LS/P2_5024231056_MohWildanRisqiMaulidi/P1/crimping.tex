@@ -1,0 +1,119 @@
+\section{Pendahuluan}
+\subsection{Latar Belakang}
+praktikum dilakukan untuk pengenalan tentang IPv6, serta mengetahui cara routing IPv6 dengan baik dan benar baik routing statis dan routing dinamis. dengan banyaknya perangkat membutuhkan internet jadinya IPv6 dibuat karena kapasitasnya sangat besar dan tidak terbatas. IPv6 juga memiliki banyak fitur yang lebih baik dibandingkan IPv4, seperti keamanan yang lebih baik, pengalamatan yang lebih efisien, dan dukungan untuk mobilitas perangkat.\\
+
+\subsection{Dasar Teori}
+%Bagian ini memuat teori-teori dasar yang mendukung pelaksanaan praktikum. Penjelasan mencakup konsep teknis, nama istilah, serta prinsip ilmiah yang relevan. Tujuannya adalah untuk memberikan pemahaman mendalam sebelum praktikum dilakukan.%
+\subsection*{IPv6 (Internet Protocol Version 6)}
+
+IPv6 adalah versi terbaru dari protokol Internet yang menggantikan IPv4. IPv6 menggunakan panjang alamat 128-bit, yang memungkinkan ketersediaan lebih dari $3.4 \times 10^{38}$ alamat unik, dibandingkan IPv4 yang hanya mendukung sekitar 4.3 miliar alamat. Pengembangan IPv6 didorong oleh keterbatasan alamat pada IPv4, serta kebutuhan akan konektivitas global yang lebih besar, termasuk untuk perangkat Internet of Things (IoT). Selain itu, IPv6 menyediakan fitur-fitur seperti autokonfigurasi, keamanan end-to-end, dan efisiensi routing yang lebih baik.
+
+\subsection*{Subnetting pada IPv6}
+
+Subnetting pada IPv6 dilakukan dengan menggunakan \textit{prefix} untuk menunjukkan ukuran jaringan. Sebagai contoh, prefix \texttt{/32} berarti 32 bit pertama digunakan sebagai penanda network ID. Umumnya, subnet pada IPv6 dibuat menggunakan prefix \texttt{/64}. Contoh pembentukan subnet:
+\begin{itemize}
+    \item \texttt{2001:db8:0000:0000::/64}
+    \item \texttt{2001:db8:0001:0000::/64}
+    \item \texttt{2001:db8:0002:0000::/64}
+\end{itemize}
+Subnetting ini mempermudah pengelolaan jaringan besar dan memberikan struktur alamat yang lebih fleksibel.
+
+\subsection*{Routing IPv6}
+
+Routing pada IPv6 dapat dilakukan secara statis maupun dinamis:
+\begin{itemize}
+    \item \textbf{Routing Statis:} Administrator jaringan secara manual menentukan rute antar jaringan. Cocok digunakan pada jaringan kecil dan konfigurasi sederhana.
+    \item \textbf{Routing Dinamis:} Protokol routing seperti OSPFv3, RIPng, dan BGP digunakan agar router dapat saling bertukar informasi rute secara otomatis. Cocok untuk jaringan yang besar dan kompleks.
+\end{itemize}
+IPv6 juga menyederhanakan header paket untuk mendukung efisiensi dalam proses routing.
+
+\subsection*{Manfaat IPv6}
+
+IPv6 memiliki sejumlah keunggulan dibandingkan IPv4, antara lain:
+\begin{itemize}
+    \item Tidak memerlukan NAT (Network Address Translation), sehingga komunikasi end-to-end lebih langsung dan efisien.
+    \item Mendukung autokonfigurasi alamat menggunakan Stateless Address Autoconfiguration (SLAAC).
+    \item Mendukung keamanan data melalui penerapan IPsec yang terintegrasi secara default.
+    \item Efisiensi dalam routing karena struktur alamat yang hierarkis dan penggunaan header yang sederhana.
+\end{itemize}
+
+%===========================================================%
+\section{Tugas Pendahuluan}
+Bagian ini berisi jawaban dari tugas pendahuluan yang telah anda kerjakan, beserta penjelasan dari jawaban tersebut
+\begin{enumerate}
+	\item IPv6 adalah versi terbaru dari protokol internet (IP) yang dirancang untuk menggantikan IPv4. IPv6 memiliki ruang alamat yang jauh lebih besar (128 bit), memungkinkan untuk mendukung jumlah perangkat yang jauh lebih besar yang terhubung ke internet.\\
+	perbedaan utama dari IPv6 dengan IPv4 sebagai berikut:\\
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Aspek} & \textbf{IPv6} & \textbf{IPv4} \\ \hline
+		Panjang Alamat                  & 128-bit (heksadesimal)                      & 32-bit (desimal)                    \\ \hline
+		Penulisan                       & Hexadecimal, dipisahkan titik dua (::)      & Desimal, dipisahkan titik (.)       \\ \hline
+		NAT                             & Tidak diperlukan (alamat publik langsung)   & Umumnya menggunakan NAT             \\ \hline
+		Konfigurasi                     & SLAAC, DHCPv6                               & DHCP, konfigurasi manual            \\ \hline
+		Header                          & Tetap 40 byte, tanpa checksum               & Ukuran variabel, dengan checksum    \\ \hline
+		\end{tabular}
+	\end{table}
+
+	\item a. Blok \textbf{\textit{2001:db8::/32}}	memiliki 32 bit prefix. Untuk membuat subnet /64, kita perlu menambahkan 32 bit lagi.\\
+	b.\\
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Subnet} & \textbf{Alamat Prefix IPv6} \\ \hline
+		Subnet A & \textbf{\textit{2001:db8:0:1::/64}}\\ \hline
+		Subnet B & \textbf{\textit{2001:db8:0:2::/64}} \\ \hline
+		Subnet C & \textbf{\textit{2001:db8:0:3::/64}} \\ \hline
+		Subnet D & \textbf{\textit{2001:db8:0:4::/64}} \\ \hline
+		\end{tabular}
+	\end{table}
+	\\\\\\
+	
+	\item a. lihat pada tabel dibawah:\\
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Subnet} & \textbf{Alamat Prefix IPv6} \\ \hline
+		ether1 & Subnet A & \textbf{\textit{2001:db8:0:1::/64}}\\ \hline
+		ether2 & Subnet B & \textbf{\textit{2001:db8:0:2::/64}} \\ \hline
+		ether3 & Subnet C & \textbf{\textit{2001:db8:0:3::/64}} \\ \hline
+		ether4 & Subnet D & \textbf{\textit{2001:db8:0:4::/64}} \\ \hline
+		\end{tabular}
+	\end{table}
+
+	b.Konfigurasi IPv6 address (contoh di MikroTik CLI)\\
+	\begin{lstlisting}[style=bashstyle]
+	/ipv6 address
+	add address=2001:db8:0:1::1/64 interface=ether1
+	add address=2001:db8:0:2::1/64 interface=ether2
+	add address=2001:db8:0:3::1/64 interface=ether3
+	add address=2001:db8:0:4::1/64 interface=ether4
+	\end{lstlisting}
+
+	\item \begin{lstlisting}
+		/ipv6 route
+		add dst-address=2001:db8:0:2::/64 gateway=2001:db8:0:2::1
+		add dst-address=2001:db8:0:3::/64 gateway=2001:db8:0:3::1
+		add dst-address=2001:db8:0:4::/64 gateway=2001:db8:0:4::1
+		add dst-address=2001:db8:0:1::/64 gateway=2001:db8:0:1::1
+	\end{lstlisting}
+
+	\item \textbf{Routing statis} adalah metode penentuan jalur jaringan secara manual oleh administrator jaringan. Jalur atau rute ditentukan secara eksplisit tanpa menggunakan protokol routing dinamis.\\
+	\textbf{Fungsi Routing Statis IPv6:}\\
+	\begin{itemize}
+		\item Mengontrol lalu lintas jaringan secara presisi.
+		\item Menghindari kompleksitas protokol dinamis.
+		\item Cocok untuk jaringan kecil atau topologi tetap.
+	\end{itemize}\\
+	\textbf{Kapan digunakan?}\\
+	\begin{itemize}
+		\item Jaringan kecil dengan sedikit perubahan.
+		\item Topologi sederhana.
+		\item Untuk menghindari overhead protokol dinamis.
+		\item Saat troubleshooting jaringan.
+		\item Ketika ingin lock route ke satu jalur saja (misal untuk alasan keamanan).
+	\end{itemize}
+\end{enumerate}
